@@ -1,6 +1,6 @@
 let map;
 function preload(){
-	map = loadImage("/src/map.png")
+	map = loadImage("src/bene.png")
 }
 function setup() {
 
