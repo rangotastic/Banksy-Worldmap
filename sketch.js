@@ -14,6 +14,8 @@ function setup() {
   pix = width / 1600
   london = new Location("London", pix * 741, pix * 297, 23, "\nCurrently there are \n23 artworks in the \nLondon area");
   bristol = new Location("Bristol", pix * 726, pix * 303, 6, "\nCurrently there are \n6 artworks in the \nBristol area");
+  southHampton = new Location("South Hampton", pix * 732, pix * 304, 1, "\nCurrently there is \n1 artwork in the \nSouth Hampton area");
+  torquay = new Location("Torquay", pix * 722, pix * 307, 1, "\nCurrently there is \n1 artwork in the \nTorquay area");
   paris = new Location("Paris", pix * 749, pix * 317, pix * 6, "\nCurrently there are \n6 artworks in the \nParis area");
   calais = new Location("Calais", pix * 752, pix * 304, 2, "\nCurrently there are \n2 artworks in the \nCalais area");
   newYork = new Location("New York", pix * 448, pix * 358, 19, "\nCurrently there are \n19 artworks in the \nNew York area");
@@ -32,6 +34,10 @@ function draw() {
   calais.popUp();
   bristol.show();
   bristol.popUp();
+  southHampton.show();
+  southHampton.popUp();
+  torquay.show();
+  Torquay.popUp();
   paris.show();
   paris.popUp();
   london.show();
