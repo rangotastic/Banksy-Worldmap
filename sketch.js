@@ -15,15 +15,15 @@ function setup() {
 
   createCanvas(windowWidth, windowWidth / 16 * 9);
   pix = width / 1600
-  london = new Location("London", pix * 741, pix * 297, 23, "\nCurrently there are 23 artworks in the London-area");
-  bristol = new Location("Bristol", pix * 726, pix * 303, 5, "\nCurrently there are 5 artworks in the Bristol-area");
-  paris = new Location("Paris", pix * 749, pix * 317, pix * 6, "\nCurrently there are 6 artworks in the Paris-area");
-  calais = new Location("Calais", pix * 752, pix * 304, 2, "\nCurrently there are 2 artworks in the Calais-area");
+  london = new Location("London", pix * 741, pix * 297, 23, "\nCurrently there are \n23 artworks in the \nLondon-area");
+  bristol = new Location("Bristol", pix * 726, pix * 303, 5, "\nCurrently there are \n5 artworks in the \nBristol-area");
+  paris = new Location("Paris", pix * 749, pix * 317, pix * 6, "\nCurrently there are \n6 artworks in the \nParis-area");
+  calais = new Location("Calais", pix * 752, pix * 304, 2, "\nCurrently there are \n2 artworks in the \nCalais-area");
 }
 
 function draw() {
   background(255);
-  image(map, 0, 0, width, height);
+ image(map, 0, 0, width, height);
   london.show();
   london.popUp();
   bristol.show();
