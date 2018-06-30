@@ -61,31 +61,25 @@ class Location {
   }
   show() {
     noStroke();
-    fill(212, 0, 19, 175);
+    fill(251, 215, 0, 175);
     ellipse(this.x, this.y, this.d);
     if (hover) {
       textSize(width / 50);
-      strokeWeight(width / 2000);
-      stroke(0);
       text("\nhover over city to display information", width / 50, height - width / 20);
-      noStroke();
 
     }
   }
   popUp() {
     if (popped) {
       if (dist(this.x, this.y, mouseX, mouseY) <= this.d / 2) {
-        fill(212, 0, 19);
+        fill(251, 215, 0);
         ellipse(this.x, this.y, this.d);
         textAlign(TOP)
-        stroke(0);
-        strokeWeight(width / 2000);
         textFont("Helvetica");
         textSize(width / 60);
         text(this.name, this.x + this.d / 2 + 5 * pix, this.y + this.d / 2);
         textSize(width / 80);
         text(this.dialogue, this.x + this.d / 2 + 5 * pix, this.y + this.d / 2);
-        noStroke();
         hover = false;
         popped = false;
       }
