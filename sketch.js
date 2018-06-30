@@ -37,7 +37,7 @@ function draw() {
   southHampton.show();
   southHampton.popUp();
   torquay.show();
-  Torquay.popUp();
+  torquay.popUp();
   paris.show();
   paris.popUp();
   london.show();
