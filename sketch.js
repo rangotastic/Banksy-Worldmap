@@ -45,7 +45,7 @@ class Location {
   }
   show() {
     noStroke();
-    fill(100, 90, 255, 150);
+    fill(235, 81, 14, 200);
     ellipse(this.x, this.y, this.d);
     if (hover == true) {
       textSize(width / 50);
@@ -55,13 +55,13 @@ class Location {
   }
   popUp() {
     if (dist(this.x, this.y, mouseX, mouseY) <= this.d / 2) {
-      fill(100, 90, 255);
+      fill(235, 81, 14);
       ellipse(this.x, this.y, this.d);
       textFont("Helvetica");
       textSize(width / 40);
-      text(this.name, width / 100, height - width / 20);
+      text(this.name, this.x + 5*pix, this.y);
       textSize(width / 50);
-      text(this.dialogue, width / 100, height - width / 20);
+      text(this.dialogue, this.x + 5*pix, this.y);
       hover = false
     }
   }
