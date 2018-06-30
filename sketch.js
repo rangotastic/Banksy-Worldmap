@@ -1,10 +1,7 @@
 let map;
 let hover = true;
+let popped;
 let pix;
-let london;
-let bristol;
-let paris;
-let calais;
 
 function preload() {
   map = loadImage("src/map.png")
@@ -15,23 +12,42 @@ function setup() {
 
   createCanvas(windowWidth, windowWidth / 16 * 9);
   pix = width / 1600
-  london = new Location("London", pix * 741, pix * 297, 23, "\nCurrently there are \n23 artworks in the \nLondon-area");
-  bristol = new Location("Bristol", pix * 726, pix * 303, 5, "\nCurrently there are \n5 artworks in the \nBristol-area");
-  paris = new Location("Paris", pix * 749, pix * 317, pix * 6, "\nCurrently there are \n6 artworks in the \nParis-area");
-  calais = new Location("Calais", pix * 752, pix * 304, 2, "\nCurrently there are \n2 artworks in the \nCalais-area");
+  london = new Location("London", pix * 741, pix * 297, 23, "\nCurrently there are \n23 artworks in the \nLondon area");
+  bristol = new Location("Bristol", pix * 726, pix * 303, 6, "\nCurrently there are \n6 artworks in the \nBristol area");
+  paris = new Location("Paris", pix * 749, pix * 317, pix * 6, "\nCurrently there are \n6 artworks in the \nParis area");
+  calais = new Location("Calais", pix * 752, pix * 304, 2, "\nCurrently there are \n2 artworks in the \nCalais area");
+  newYork = new Location("New York", pix * 448, pix * 358, 19, "\nCurrently there are \n19 artworks in the \nNew York area");
+  sanFrancisco = new Location("San Francisco", pix * 248, pix * 381, 3, "\nCurrently there are \n3 artworks in the \nSan Francisco area");
+  losAngeles = new Location("Los Angeles", pix * 263, pix * 401, 2, "\nCurrently there are \n2 artworks in the \nLos Angeles area");
+  newOrleans = new Location("New Orleans", pix * 376, pix * 416, 4, "\nCurrently there are \n4 artworks in the \nNew Orleans area");
+  jerusalem = new Location("Jerusalem", pix * 884, pix * 399, 5, "\nCurrently there are \n5 artworks in the \nJerusalem area");
+  tallin = new Location("Tallin", pix * 836, pix * 255, 1, "\nCurrently there is \n1 artwork in the \nTallin area");
 }
 
 function draw() {
+  popped = true;
   background(255);
- image(map, 0, 0, width, height);
-  london.show();
-  london.popUp();
+  image(map, 0, 0, width, height);
+  calais.show();
+  calais.popUp();
   bristol.show();
   bristol.popUp();
   paris.show();
   paris.popUp();
-  calais.show();
-  calais.popUp();
+  london.show();
+  london.popUp();
+  newYork.show();
+  newYork.popUp();
+  sanFrancisco.show();
+  sanFrancisco.popUp();
+  losAngeles.show();
+  losAngeles.popUp();
+  newOrleans.show();
+  newOrleans.popUp();
+  jerusalem.show();
+  jerusalem.popUp();
+  tallin.show();
+  tallin.popUp();
 }
 
 class Location {
@@ -45,24 +61,34 @@ class Location {
   }
   show() {
     noStroke();
-    fill(235, 81, 14, 200);
+    fill(212, 0, 19, 175);
     ellipse(this.x, this.y, this.d);
-    if (hover == true) {
+    if (hover) {
       textSize(width / 50);
-      text("\nhover over city to display information", width / 100, height - width / 20);
+      strokeWeight(width / 2000);
+      stroke(0);
+      text("\nhover over city to display information", width / 50, height - width / 20);
+      noStroke();
 
     }
   }
   popUp() {
-    if (dist(this.x, this.y, mouseX, mouseY) <= this.d / 2) {
-      fill(235, 81, 14);
-      ellipse(this.x, this.y, this.d);
-      textFont("Helvetica");
-      textSize(width / 40);
-      text(this.name, this.x + 5*pix, this.y);
-      textSize(width / 50);
-      text(this.dialogue, this.x + 5*pix, this.y);
-      hover = false
+    if (popped) {
+      if (dist(this.x, this.y, mouseX, mouseY) <= this.d / 2) {
+        fill(212, 0, 19);
+        ellipse(this.x, this.y, this.d);
+        textAlign(TOP)
+        stroke(0);
+        strokeWeight(width / 2000);
+        textFont("Helvetica");
+        textSize(width / 60);
+        text(this.name, this.x + this.d / 2 + 5 * pix, this.y + this.d / 2);
+        textSize(width / 80);
+        text(this.dialogue, this.x + this.d / 2 + 5 * pix, this.y + this.d / 2);
+        noStroke();
+        hover = false;
+        popped = false;
+      }
     }
   }
 }
