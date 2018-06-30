@@ -1,12 +1,68 @@
 let map;
-function preload(){
-	map = loadImage("src/map.png")
+let hover = true;
+let pix;
+let london;
+let bristol;
+let paris;
+let calais;
+
+function preload() {
+  map = loadImage("src/map.png")
+
 }
+
 function setup() {
 
-	createCanvas(windowWidth,windowWidth/16*9);
+  createCanvas(windowWidth, windowWidth / 16 * 9);
+  pix = width / 1600
+  london = new Location("London", pix * 741, pix * 297, 23, "\nCurrently there are 23 artworks in the London-area");
+  bristol = new Location("Bristol", pix * 726, pix * 303, 5, "\nCurrently there are 5 artworks in the Bristol-area");
+  paris = new Location("Paris", pix * 749, pix * 317, pix * 6, "\nCurrently there are 6 artworks in the Paris-area");
+  calais = new Location("Calais", pix * 752, pix * 304, 2, "\nCurrently there are 2 artworks in the Calais-area");
 }
 
 function draw() {
-image(map,0,0,width,height);
+  background(255);
+  image(map, 0, 0, width, height);
+  london.show();
+  london.popUp();
+  bristol.show();
+  bristol.popUp();
+  paris.show();
+  paris.popUp();
+  calais.show();
+  calais.popUp();
+}
+
+class Location {
+  constructor(name, xPos, yPos, artworks, dialogue) {
+    this.x = xPos;
+    this.y = yPos;
+    this.artworks = artworks;
+    this.d = width / 1000 * this.artworks * pix + 3;
+    this.dialogue = dialogue;
+    this.name = name
+  }
+  show() {
+    noStroke();
+    fill(100, 90, 255, 150);
+    ellipse(this.x, this.y, this.d);
+    if (hover == true) {
+      textSize(width / 50);
+      text("\nhover over city to display information", width / 100, height - width / 20);
+
+    }
+  }
+  popUp() {
+    if (dist(this.x, this.y, mouseX, mouseY) <= this.d / 2) {
+      fill(100, 90, 255);
+      ellipse(this.x, this.y, this.d);
+      textFont("Helvetica");
+      textSize(width / 40);
+      text(this.name, width / 100, height - width / 20);
+      textSize(width / 50);
+      text(this.dialogue, width / 100, height - width / 20);
+      hover = false
+    }
+  }
 }
