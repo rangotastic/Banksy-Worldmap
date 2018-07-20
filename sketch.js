@@ -4,7 +4,7 @@ let popped;
 let pix;
 
 function preload() {
-  map = loadImage("src/map2.png")
+  map = loadImage("src/map.png")
 
 }
 
@@ -29,7 +29,7 @@ function setup() {
 
 function draw() {
   popped = true;
-  background(255);
+  background(0);
   image(map, 0, 0, width, height);
   calais.show();
   calais.popUp();
