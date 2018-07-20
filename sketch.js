@@ -79,7 +79,7 @@ class Location {
   popUp() {
     if (popped) {
       if (dist(this.x, this.y, mouseX, mouseY) <= this.d / 2) {
-        fill(251, 215, 0);
+        fill(74, 141, 166);
         ellipse(this.x, this.y, this.d);
         textAlign(TOP)
         textFont("Helvetica");
