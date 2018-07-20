@@ -29,7 +29,7 @@ function setup() {
 
 function draw() {
   popped = true;
-  background(0);
+  background(166,129,78);
   image(map, 0, 0, width, height);
   calais.show();
   calais.popUp();
