@@ -68,7 +68,7 @@ class Location {
   }
   show() {
     noStroke();
-    fill(251, 215, 0, 175);
+    fill(74, 141, 166, 175);
     ellipse(this.x, this.y, this.d);
     if (hover) {
       textSize(width / 50);
